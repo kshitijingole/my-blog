@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+// https://github.com/LinkedInLearning/react-creating-and-hosting-a-full-stack-site-3209140/tree/02_04b/my-blog
 import './App.css';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ArticleListPage from './pages/ArticleListPage';
+import ArticlePage from './pages/ArticlePage';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path='/' element={<HomePage />}></Route>
+        <Route path='/about-us' element={<AboutPage />}></Route>
+        <Route path='/articles' element={<ArticleListPage />}></Route>
+        <Route path='/articles/:articleId' element={<ArticlePage />}></Route>
+      </Routes>
+        
     </div>
+    </BrowserRouter>
+    
   );
 }
 
